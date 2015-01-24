@@ -16,6 +16,6 @@ window.EagerSisyphusHelper = function(options){
   }
 
   for (var i=0; i < forms.length; i++){
-    $(forms[i]).sisyphus();
+    jQuery(forms[i]).sisyphus();
   }
 }

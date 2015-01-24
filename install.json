@@ -6,10 +6,10 @@
         "src": "./sisyphus.js",
         "moduleType": "global",
         "exports": [
-          "$"
+          "jQuery"
         ],
         "depends": {
-          "github.com/jquery/jquery:jquery.js": "$"
+          "github.com/jquery/jquery:jquery.js": "jQuery"
         }
       },
       {
@@ -17,7 +17,7 @@
         "src": "./install/helper.js",
         "moduleType": "global",
         "depends": {
-          "./sisyphus.js": "$"
+          "./sisyphus.js": "jQuery"
         }
       },
       {
