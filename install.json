@@ -1,0 +1,58 @@
+{
+  "resources": {
+    "body": [
+      {
+        "type": "script",
+        "src": "./sisyphus.js",
+        "moduleType": "global",
+        "exports": [
+          "$"
+        ],
+        "depends": {
+          "github.com/jquery/jquery:jquery.js": "$"
+        }
+      },
+      {
+        "type": "script",
+        "src": "./install/helper.js",
+        "moduleType": "global",
+        "depends": {
+          "./sisyphus.js": "$"
+        }
+      },
+      {
+        "type": "script",
+        "contents": "EagerSisyphusHelper(INSTALL_OPTIONS)"
+      }
+    ]
+  },
+  "dependencies": {
+    "github.com/jquery/jquery": ">= 1.7.0, <= 1.10.2"
+  },
+  "options": {
+    "properties": {
+      "all": {
+        "order": 1,
+        "title": "All Forms",
+        "description": "Should we apply Sisyphus to all forms on your site automatically?",
+        "type": "boolean",
+        "default": true
+      },
+      "forms": {
+        "order": 2,
+        "title": "Forms",
+        "description": "Manually select the forms you would like to apply Sisyphus to",
+        "showIf": {
+          "all": false
+        },
+        "type": "array",
+        "items": {
+          "title": "Form",
+          "description": "Select the form element on your site",
+          "type": "string",
+          "format": "selector"
+        }
+      }
+    }
+  }
+}
