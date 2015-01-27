@@ -31,24 +31,32 @@
   },
   "options": {
     "properties": {
-      "all": {
+      "apply": {
         "order": 1,
-        "title": "All Forms",
-        "description": "Should we apply Sisyphus to all forms on your site automatically?",
-        "type": "boolean",
-        "default": true
+        "title": "To which forms should we apply Sisyphus?",
+        "type": "string",
+        "format": "radios",
+        "enum": [
+          "all",
+          "specified"
+        ],
+        "enumNames": {
+          "all": "Apply Sisyphus to all forms on my site",
+          "specified": "Let me choose specific forms"
+        },
+        "default": "all"
       },
       "forms": {
         "order": 2,
         "title": "Forms",
-        "description": "Manually select the forms you would like to apply Sisyphus to",
+        "description": "Manually select the forms you would like to apply Sisyphus to. Click “Add” to specify multiple forms.",
         "showIf": {
-          "all": false
+          "apply": "specified"
         },
         "type": "array",
         "items": {
           "title": "Form",
-          "description": "Select the form element on your site",
+          "description": "Select a form element on your site",
           "type": "string",
           "format": "selector"
         }
