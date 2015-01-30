@@ -4,9 +4,8 @@ window.EagerSisyphusHelper = function(options) {
   if (options.apply === 'all') {
     var forms = document.querySelectorAll('form');
     if (!forms) return;
-  }
 
-  if (options.apply === 'specified') {
+  } else if (options.apply === 'specified') {
     var forms = [];
 
     for (var i = 0; i < options.forms.length; i++) {
@@ -18,6 +17,11 @@ window.EagerSisyphusHelper = function(options) {
   }
 
   for (var i = 0; i < forms.length; i++) {
+    if (forms[i].getAttribute('name') === null){
+      // Sisyphus uses the name to differentiate between forms
+      forms[i].setAttribute('name', 'sisyphus-form-' + (i + 1))
+    }
+
     jQuery(forms[i]).sisyphus();
   }
 }
